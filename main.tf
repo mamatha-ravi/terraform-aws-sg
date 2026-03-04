@@ -1,6 +1,6 @@
 resource "aws_security_group" "main" {
-  name        = "${var.project}-${var.environment}-${var.component}"
-  description = "Allow TLS inbound traffic for ${var.project} in ${var.environment} for component ${var.component}"
+  name        = "${var.project}-${var.environment}-${var.sg_name}"
+  description = "Allow TLS inbound traffic for ${var.project} in ${var.environment} for component ${var.sg_name}"
   vpc_id      = var.vpc_id
  egress {
     from_port        = 0
@@ -12,7 +12,7 @@ resource "aws_security_group" "main" {
      var.sg_tags,
     local.common_tags,
   {
-        Name = "${var.project}-${var.environment}-${var.component}"
+        Name = "${var.project}-${var.environment}-${var.sg_name}"
     }
   )
 }

@@ -8,7 +8,7 @@ variable "environment"{
     default = "dev"
 }
 
-variable "component"{
+variable "sg_name"{
     type = string
     
 }
